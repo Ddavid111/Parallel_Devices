@@ -1,1 +1,1 @@
-# Parallel_Devices
+# Párhuzamos eszközök programozása
