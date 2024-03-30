@@ -41,7 +41,7 @@ int main() {
     printf("Generated array: ");
     for (int i = 0; i < n; i++) {
         arr[i] = rand() % 100;
-        printf("%d ", arr[i]); // Kiírjuk a generált elemeket
+        printf("%d ", arr[i]);
     }
     printf("\n");
 

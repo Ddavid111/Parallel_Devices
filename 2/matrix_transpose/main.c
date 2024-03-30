@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define CL_TARGET_OPENCL_VERSION 220
 #include <CL/cl.h>
 
 
@@ -16,7 +17,7 @@ int main() {
     float transposed_matrix[cols][rows];
     for(int i = 0; i < rows; i++) {
         for(int j = 0; j < cols; j++) {
-            input_matrix[i][j] = i * cols + j; // Példa inicializálás, lehet módosítani
+            input_matrix[i][j] = i * cols + j;
         }
     }
 
@@ -35,7 +36,7 @@ int main() {
     cl_context context = clCreateContext(NULL, 1, &device_id, NULL, NULL, &ret);
 
     // Parancssor létrehozása a kontextushoz
-    cl_command_queue command_queue = clCreateCommandQueue(context, device_id, 0, &ret);
+    cl_command_queue command_queue = clCreateCommandQueueWithProperties(context, device_id, NULL, &ret);
 
     // Bemeneti és kimeneti bufferek létrehozása a host oldalon
     cl_mem input_buffer = clCreateBuffer(context, CL_MEM_READ_ONLY, datasize, NULL, &ret);
@@ -45,7 +46,7 @@ int main() {
     ret = clEnqueueWriteBuffer(command_queue, input_buffer, CL_TRUE, 0, datasize, input_matrix, 0, NULL, NULL);
 
     // OpenCL kernel betöltése
-    FILE *kernel_file = fopen("sample.cl", "r");
+    FILE *kernel_file = fopen("kernels/sample.cl", "r");
     if (!kernel_file) {
         fprintf(stderr, "Failed to load kernel.\n");
         exit(1);
@@ -91,7 +92,6 @@ int main() {
         printf("\n");
     }
 
-    // Resszurzusok felszabadítása
     ret = clFlush(command_queue);
     ret = clFinish(command_queue);
     ret = clReleaseKernel(kernel);

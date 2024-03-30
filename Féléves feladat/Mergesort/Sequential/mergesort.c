@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-// Összefésülő rendezés
 void merge(int arr[], int l, int m, int r) {
     int i, j, k;
     int n1 = m - l + 1;
@@ -53,33 +52,30 @@ void mergeSort(int arr[], int l, int r) {
 
 int main() {
     int n;
-    printf("Kerem a tomb meretet: ");
+    printf("Enter the number of elements in the array: ");
     scanf("%d", &n);
 
-    // Tömb létrehozása és véletlen számokkal való feltöltése
     int arr[n];
     srand(time(NULL));
-    printf("A veletlen szamokkal feltoltott tomb:\n");
+    printf("Generated array: ");
     for (int i = 0; i < n; i++) {
-        arr[i] = rand() % 100; // Véletlen számok 0-99 között
+        arr[i] = rand() % 100;
         printf("%d ", arr[i]);
     }
     printf("\n");
 
-    // Összefésülő rendezés
     clock_t start = clock();
     mergeSort(arr, 0, n - 1);
     clock_t end = clock();
 
-    // Rendezett tömb kiírása
-    printf("A rendezett tomb:\n");
+    printf("Sorted array: ");
     for (int i = 0; i < n; i++)
         printf("%d ", arr[i]);
     printf("\n");
 
-    // Rendezési idő kiírása
+
     double time_spent = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("A rendezes ideje: %f masodperc.\n", time_spent);
+    printf("\nTime taken: %lf seconds\n", time_spent);
 
     return 0;
 }
