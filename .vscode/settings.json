@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "cl.h": "c",
+        "stdlib.h": "c",
+        "kernel_loader.h": "c"
+    }
+}
