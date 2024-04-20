@@ -76,7 +76,7 @@ int main() {
     context = clCreateContext(NULL, 1, &device_id, NULL, NULL, &ret);
     command_queue = clCreateCommandQueueWithProperties(context, device_id, 0, &ret);
 
-    program = load_kernel(context, device_id, "kernels/merge_sort.cl");
+    program = load_kernel(context, device_id, "kernels/mergesort.cl");
 
     mergeToTemp_kernel = clCreateKernel(program, "mergeToTemp", &ret);
     copyFromTemp_kernel = clCreateKernel(program, "copyFromTemp", &ret);

@@ -1,2 +1,2 @@
 all:
-	gcc src/quick_sort.c src/kernel_loader.c -o quick_sort.exe -Iinclude -lOpenCL
+	gcc src/quicksort.c src/kernel_loader.c -o quicksort.exe -Iinclude -lOpenCL

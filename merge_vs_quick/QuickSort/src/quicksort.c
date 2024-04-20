@@ -52,7 +52,7 @@ int main() {
     char *source_str;
     size_t source_size;
 
-    fp = fopen("kernels/quick_sort.cl", "r");
+    fp = fopen("kernels/quicksort.cl", "r");
     if (!fp) {
         fprintf(stderr, "Failed to load kernel.\n");
         exit(1);
