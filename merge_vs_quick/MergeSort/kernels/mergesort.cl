@@ -1,6 +1,5 @@
-// Kernel függvény az összefésülésre
 __kernel void mergeToTemp(__global int* arr, const int low1, const int high1, const int low2, const int high2, __global int* temp) {
-    int input_size = high2 - low1 + 1; // A bemeneti adatok teljes mérete
+    int input_size = high2 - low1 + 1; 
 
     int i = low1, j = low2, k = 0;
 
@@ -21,7 +20,6 @@ __kernel void mergeToTemp(__global int* arr, const int low1, const int high1, co
     }
 }
 
-// Kernel függvény a temp tömbből való másolásra az arr tömbbe
 __kernel void copyFromTemp(__global int* arr, const int low1, const int high2, __global int* temp) {
     int i = low1, k = 0;
 
