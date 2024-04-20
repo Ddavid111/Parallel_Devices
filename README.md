@@ -43,3 +43,5 @@ A kernel kód három OpenCL kernel függvényt tartalmaz, amelyek egy párhuzamo
 ![Gyorsrendezés szekvenciális esetben mért idő](docs/images/quicksort_seq.PNG) 
 ![Gyorsrendezés párhuzamos esetben mért idő](docs/images/quicksort_parallel.PNG) 
 ![Gyorsrendezés szekvenciális vs. párhuzamos futásidő](docs/images/quicksort_seq_vs_parallel.PNG)
+
+Az ábrán jól látható, hogy a párhuzamos gyorsrendezés sokkal hatékonyabb a szekvenciálishoz képest, különösen nagy adathalmazok rendezésekor. A párhuzamos implementáció gyorsabban végez a rendezéssel, ami a többi feladat gyorsabb végrehajtását eredményezi.
