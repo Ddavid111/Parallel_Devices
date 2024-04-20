@@ -20,9 +20,9 @@ Párhuzamos eset:
 A merge_sort.c kód egy OpenCL alapú összefésülő rendezés implementációt valósít meg, amely összehasonlítja a szekvenciális és a párhuzamos rendezés futási idejét különböző méretű tömbökön.
 A main függvény először inicializálja az OpenCL környezetet, létrehozva a platformot, az eszközt, a kontextust és a parancssorozatot. Ezután betölti a kernel fájlt, és létrehozza a két kernel függvényt: mergeToTemp és copyFromTemp. Ezután a fő ciklusban minden méretre (a sizes tömbben megadottak szerint) létrehoz egy véletlenszerűen inicializált tömböt, majd szekvenciálisan rendez vele. Ezt követően előkészíti az OpenCL számára a megfelelő memóriaterületeket, és átmásolja az adatokat a videókártya memóriájába. Ezután a program a párhuzamos rendezést hajtja végre a mergeToTemp és copyFromTemp kernel függvények segítségével. A futás időtartamát az időzítővel mérik, majd kiírják a szekvenciális és párhuzamos futás idejét a konzolra. Végül felszabadítjuk a dinamikusan foglalt memóriaterületeket, valamint az OpenCL erőforrásokat. Ez a ciklus minden méretre megismétlődik. Így a program segítségével összehasonlítható, hogy mennyi időt vesz igénybe az összefésülő rendezés szekvenciális és párhuzamos változata különböző méretű adathalmazokon.
 
-![Összefésülő rendezés szekvenciális esetben mért idő](mergesort_seq.PNG) 
-![Összefésülő rendezés szekvenciális esetben mért idő](mergesort_parallel.PNG) 
-![Összefésülő rendezés szekvenciális esetben mért idő](mergesort_seq_vs_parallel.PNG) 
+![Összefésülő rendezés szekvenciális esetben mért idő](images/mergesort_seq.PNG) 
+![Összefésülő rendezés szekvenciális esetben mért idő](images/mergesort_parallel.PNG) 
+![Összefésülő rendezés szekvenciális esetben mért idő](images/mergesort_seq_vs_parallel.PNG) 
 
 Az ábrákon jól látható, hogy a párhuzamos eset jóval gyorsabban lefut mint a szekvenciális. Ez az eredmény azt mutatja, hogy az OpenCL segítségével kihasználhatjuk a párhuzamosítás előnyeit, és hatékonyabban dolgozhatunk a nagyobb adathalmazokkal. A párhuzamos összefésülő rendezés alkalmazása lehetővé teszi, hogy a számításokat a grafikus processzorokon végezzük el, amelyek sokszor nagyobb számítási kapacitással rendelkeznek, így az alkalmazások gyorsabbá és hatékonyabbá válnak. 
 
@@ -41,6 +41,6 @@ A kernel kód három OpenCL kernel függvényt tartalmaz, amelyek egy párhuzamo
 
 
 
-![Gyorsrendezés szekvenciális esetben mért idő](quicksort_seq.PNG) 
-![Gyorsrendezés rendezés szekvenciális esetben mért idő](quicksort_parallel.PNG) 
-![Gyorsrendezés rendezés szekvenciális esetben mért idő](quicksort_seq_vs_parallel.PNG) 
+![Gyorsrendezés szekvenciális esetben mért idő](images/quicksort_seq.PNG) 
+![Gyorsrendezés rendezés szekvenciális esetben mért idő](images/quicksort_parallel.PNG) 
+![Gyorsrendezés rendezés szekvenciális esetben mért idő](images/quicksort_seq_vs_parallel.PNG) 
