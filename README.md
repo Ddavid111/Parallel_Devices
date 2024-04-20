@@ -1,6 +1,6 @@
 # Párhuzamos eszközök programozása
 
-A `Gyakorlatok` mappában az órai munkáim eredményei találhatóak.
+A `Gyakorlatok` mappában az órai munka eredményei találhatóak.
 
 A `merge_vs_quick` mappában a beadandó feladatomhoz a forráskódok találhatóak.
 
