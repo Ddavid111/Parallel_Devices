@@ -34,7 +34,8 @@ A `merge_sort.c` kód egy OpenCL alapú összefésülő rendezés implementáci�
 
 ![Összefésülő rendezés szekvenciális esetben mért idő](docs/images/mergesort_seq.PNG) 
 ![Összefésülő rendezés párhuzamos esetben mért idő](docs/images/mergesort_parallel.PNG) 
-![Összefésülő rendezés szekvenciális vs. párhuzamos futásidő](docs/images/mergesort_seq_vs_parallel.PNG) 
+![Összefésülő rendezés szekvenciális vs. párhuzamos futásidő](docs/images/mergesort_seq_vs_parallel.PNG)
+![Összefésülő rendezés gyorsítása](docs/images/mergesort_speed.PNG)
 
 Az ábrákon jól látható, hogy a párhuzamos eset jóval gyorsabban lefut, mint a szekvenciális. Az összefésülő rendezésnél a párhuzamos megközelítés átlagosan mintegy 225-ször gyorsabb volt, mint a szekvenciális verzió, különösen nagyobb adathalmazok esetén. Ez az eredmény azt mutatja, hogy az OpenCL segítségével kihasználhatók a párhuzamosítás előnyei, és hatékonyabban dolgozhatunk nagyobb adathalmazokkal. A párhuzamos összefésülő rendezés alkalmazása lehetővé teszi, hogy a számításokat a grafikus processzorokon végezzük el, amelyek sokszor nagyobb számítási kapacitással rendelkeznek, így az alkalmazások gyorsabbá és hatékonyabbá válnak. 
 
@@ -59,5 +60,6 @@ A main függvény betölti a kernel fájlt, inicializálja az OpenCL környezete
 ![Gyorsrendezés szekvenciális esetben mért idő](docs/images/quicksort_seq.PNG) 
 ![Gyorsrendezés párhuzamos esetben mért idő](docs/images/quicksort_parallel.PNG) 
 ![Gyorsrendezés szekvenciális vs. párhuzamos futásidő](docs/images/quicksort_seq_vs_parallel.PNG)
+![Gyorsrendezés gyorsítása](docs/images/quicksort_speed.PNG)
 
 Az ábrán jól látható, hogy a párhuzamos gyorsrendezés sokkal hatékonyabb a szekvenciálishoz képest, különösen nagy adathalmazok rendezésekor. A párhuzamos gyorsrendezés átlagosan körülbelül 1268-szor gyorsabb volt, mint a szekvenciális megvalósítás, különösen nagyobb adathalmazok rendezésekor. A párhuzamos implementáció gyorsabban végez a rendezéssel, ami a többi feladat gyorsabb végrehajtását eredményezi.
