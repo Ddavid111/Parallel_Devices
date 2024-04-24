@@ -10,6 +10,14 @@ A `docs` jegyzékben két almappa található:
 
 ## Gyorsrendezés és Összefésülő rendezés OpenCL-ben
 
+A párhuzamos méréseket NVIDIA RTX 2060 GPU-n végeztem.
+A szekvenciális méréseket Intel(R) Core(TM) i5-4690 CPU @ 3.50GHz processzoron futtattam.
+Módszertan: Az időméréseket az OpenCL események segítségével végeztem.
+
+Paraméterek: A mérések során különböző méretű adathalmazokkal dolgoztam (például 1000000, 2000000, 3000000, 4500000, 6000000, 7000000 elemű tömbök).
+
+Körülmények: A méréseket olyan környezetben végeztem, ahol nem futott más terhelő szoftver, és nem volt jelen olyan tényező, ami befolyásolhatta volna a GPU vagy CPU teljesítményét.
+
 Célom az volt, hogy implementáljam a gyors- illetve összefésülő rendezéseket mind szekvenciális, mind párhuzamosított esetben különböző (milliós nagyságú) tömbméretekkel történő rendezéssel. A jegyzékek felépítését tekintve a kernel betöltését kiszerveztem két fájlba, amelyek az `include` (`kernel_loader.h`) és az `src` (`kernel_loader.c`) jegyzékben találhatóak meg. A `kernels` mappa a kernel kódot tartalmazza. A főprogram az `src` jegyzéken belül található. Ezenkívül a könnyebb fordítás érdekében létrehoztam makefile-t is. A tömbméretek: 1000000, 2000000, 3000000, 4500000, 6000000, 7000000.
 
 ### Összefésülő rendezés

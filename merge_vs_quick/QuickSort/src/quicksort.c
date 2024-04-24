@@ -108,9 +108,12 @@ int main() {
         ret = clFinish(command_queue);
         parallel_duration = (double)(clock() - parallel_time) / CLOCKS_PER_SEC;
 
+        double acceleration = seq_duration / parallel_duration;
+
         printf("Array size: %d\n", n);
-        printf("Sequential quicksort duration: %lf seconds\n", seq_duration);
-        printf("Parallel quicksort duration: %lf seconds\n\n", parallel_duration);
+        printf("Sequential quicksort duration: %.2e seconds\n", seq_duration);
+        printf("Parallel quicksort duration: %.2e seconds\n", parallel_duration);
+        printf("Acceleration: %.2f\n", acceleration);
 
         ret = clReleaseMemObject(arr_buffer);
         ret = clReleaseMemObject(pi_buffer);

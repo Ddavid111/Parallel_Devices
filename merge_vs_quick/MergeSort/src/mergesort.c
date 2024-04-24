@@ -119,9 +119,12 @@ int main() {
         ret = clFinish(command_queue);
         parallel_duration = (double)(clock() - parallel_time) / CLOCKS_PER_SEC;
 
+        double acceleration = seq_duration / parallel_duration;
+
         printf("Array size: %d\n", n);
-        printf("Sequential mergesort duration: %lf seconds\n", seq_duration);
-        printf("Parallel mergesort duration: %lf seconds\n", parallel_duration);
+        printf("Sequential mergesort duration: %.2e seconds\n", seq_duration);
+        printf("Parallel mergesort duration: %.2e seconds\n", parallel_duration);
+        printf("Acceleration: %.2f\n", acceleration);
 
         ret = clReleaseMemObject(arr_buffer);
         free(arr_copy);
