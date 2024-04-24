@@ -16,7 +16,7 @@ Módszertan: Az időméréseket az OpenCL események segítségével végeztem.
 
 Paraméterek: A mérések során különböző méretű adathalmazokkal dolgoztam (például 1000000, 2000000, 3000000, 4500000, 6000000, 7000000 elemű tömbök).
 
-Körülmények: A méréseket olyan környezetben végeztem, ahol nem futott más terhelő szoftver, és nem volt jelen olyan tényező, ami befolyásolhatta volna a GPU vagy CPU teljesítményét.
+A méréseket olyan környezetben végeztem, ahol nem futott más terhelő szoftver, és nem volt jelen olyan tényező, ami befolyásolhatta volna a GPU vagy CPU teljesítményét.
 
 Célom az volt, hogy implementáljam a gyors- illetve összefésülő rendezéseket mind szekvenciális, mind párhuzamosított esetben különböző (milliós nagyságú) tömbméretekkel történő rendezéssel. A jegyzékek felépítését tekintve a kernel betöltését kiszerveztem két fájlba, amelyek az `include` (`kernel_loader.h`) és az `src` (`kernel_loader.c`) jegyzékben találhatóak meg. A `kernels` mappa a kernel kódot tartalmazza. A főprogram az `src` jegyzéken belül található. Ezenkívül a könnyebb fordítás érdekében létrehoztam makefile-t is. A tömbméretek: 1000000, 2000000, 3000000, 4500000, 6000000, 7000000.
 
@@ -30,7 +30,7 @@ A szekvenciális esetet az `src/merge_sort.c` fájl elején implementáltam. Az 
 
 A párhuzamos esetet a `kernels` jegyzékben készítettem el. A kernel függvények több folyamatot hajtanak végre párhuzamosan az OpenCL környezetben. A mergeToTemp függvény az összefésülési műveletet végzi el két résztömb között. A bemeneti tömböt (arr) két részre osztom (low1 és high1 között, illetve low2 és high2 között), majd a függvény a két résztömböt egyesíti és rendezve menti egy ideiglenes tömbbe (temp). Ez az összefésülési folyamat párhuzamosan történik, amely lehetővé teszi az OpenCL keretrendszer által támogatott hardverek többszálú feldolgozásának kihasználását. A copyFromTemp függvény pedig a rendezett elemeket másolja vissza az eredeti tömbbe (arr). Ez a másolási folyamat is párhuzamosan történik, így optimalizálva a teljesítményt.
 
-A `merge_sort.c` kód egy OpenCL alapú összefésülő rendezés implementációt valósít meg, amely összehasonlítja a szekvenciális és a párhuzamos rendezés futási idejét különböző méretű tömbökön. A main függvény betölti a kernel fájlt, inicializálja az OpenCL környezetet, majd egy ciklusban minden méretre elvégzi a párhuzamos összefésülő rendezés futásidőmérését, majd kiírja a szekvenciális és párhuzamos futás idejét a konzolra. Végül felszabadítja az OpenCL erőforrásokat és a dinamikusan foglalt memóriaterületeket.
+A `merge_sort.c` kód egy OpenCL alapú összefésülő rendezés implementációt valósít meg, amely összehasonlítja a szekvenciális és a párhuzamos rendezés futási idejét különböző méretű tömbökön. A main függvény betölti a kernel fájlt, inicializálja az OpenCL környezetet, majd egy ciklusban minden méretre elvégzi a párhuzamos összefésülő rendezés futásidejének mérését, majd kiírja a szekvenciális és párhuzamos futás idejét a konzolra. Végül felszabadítja az OpenCL erőforrásokat és a dinamikusan foglalt memóriaterületeket.
 
 ![Összefésülő rendezés szekvenciális esetben mért idő](docs/images/mergesort_seq.PNG) 
 ![Összefésülő rendezés párhuzamos esetben mért idő](docs/images/mergesort_parallel.PNG) 
